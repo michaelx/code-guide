@@ -4,22 +4,22 @@ Best practices and guidelines for writing HTML with approachable formatting, syn
 
 ## General
 
-* Practicality over purity: Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.
-* JavaScript generated markup: Writing markup in a JavaScript file makes the content harder to find, harder to edit, and less performant. Avoid it whenever possible.
+- Practicality over purity: Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.
+- JavaScript generated markup: Writing markup in a JavaScript file makes the content harder to find, harder to edit, and less performant. Avoid it whenever possible.
 
 ## Syntax
 
-* Use soft-tabs with a two space indent. Spaces are the only way to guarantee code renders the same in any person’s environment.
-* Nested elements should be indented once (two spaces).
-* Always use double quotes, never single quotes, on attributes. Even though quotes around attributes is optional, always put quotes around attributes for readability.
-* Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br>` tags.
-* Items in list form should always be in `<ul>`, `<ol>`, or `<dl>`. Never use a set of `<div>` or `<p>`.
-* Every form input that has text attached should utilize a `<label>` tag. **Especially radio or checkbox elements.**
-* Don’t include a trailing slash in self-closing elements—the [HTML5 spec](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag) says they’re optional.
-* Don’t omit optional closing tags (e.g. `</li>` or `</body>`).
-* Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.
-* Avoid trailing slashes in self-closing elements. For example, `<br>`, `<hr>`, `<img>`, and `<input>`.
-* Don’t set `tabindex` manually—rely on the browser to set the order.
+- Use soft-tabs with two spaces. Spaces are the only way to guarantee code renders the same in any person’s environment.
+- Nested elements should be indented once (two spaces).
+- Always use double quotes, never single quotes, on attributes. Even though quotes around attributes is optional, always put quotes around attributes for readability.
+- Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br>` tags.
+- Items in list form should always be in `<ul>`, `<ol>`, or `<dl>`. Never use a set of `<div>` or `<p>`.
+- Every form input that has text attached should utilize a `<label>` tag. **Especially radio or checkbox elements.**
+- Don’t include a trailing slash in self-closing elements—the [HTML5 spec](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag) says they’re optional.
+- Don’t omit optional closing tags (e.g. `</li>` or `</body>`).
+- Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.
+- Avoid trailing slashes in self-closing elements. For example, `<br>`, `<hr>`, `<img>`, and `<input>`.
+- Don’t set `tabindex` manually—rely on the browser to set the order.
 
 ```html
 <!DOCTYPE html>
@@ -88,9 +88,9 @@ Per HTML5 spec, typically there is no need to specify a `type` when including CS
 
 ### HTML5 spec links
 
-* [Using link](http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element)
-* [Using style](http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element)
-* [Using script](http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element)
+- [Using link](http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element)
+- [Using style](http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element)
+- [Using script](http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element)
 
 ```html
 <!-- External CSS -->
@@ -109,12 +109,12 @@ Per HTML5 spec, typically there is no need to specify a `type` when including CS
 
 HTML attributes should come in this particular order for easier reading of code.
 
-* `class`
-* `id`, `name`
-* `data-*`
-* `src`, `for`, `type`, `href`, `value`
-* `title`, `alt`
-* `role`, `aria-*`
+- `class`
+- `id`, `name`
+- `data-*`
+- `src`, `for`, `type`, `href`, `value`
+- `title`, `alt`
+- `role`, `aria-*`
 
 Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.
 
@@ -160,10 +160,10 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 
 ## Forms
 
-* Lean towards radio or checkbox lists instead of select menus.
-* Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here—the wrapping automatically associates the two.
-* Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
-* The primary form button must come first in the DOM, especially for forms with multiple submit buttons. The visual order should be preserved with `float: right;` on each button.
+- Lean towards radio or checkbox lists instead of select menus.
+- Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here—the wrapping automatically associates the two.
+- Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
+- The primary form button must come first in the DOM, especially for forms with multiple submit buttons. The visual order should be preserved with `float: right;` on each button.
 
 ## Tables
 
@@ -196,6 +196,6 @@ Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attrib
 
 ## Credits
 
-* Inspired by [@mdo’s Code Guide](http://codeguide.co)
-* Expanded through [GitHub’s Primer Guidelines](http://primercss.io/guidelines/)
-* Compiled and expanded by [Michael Xander](http://michaelxander.com)
+- Inspired by [@mdo’s Code Guide](http://codeguide.co), which is heavily inspired by [Idiomatic CSS](https://github.com/necolas/idiomatic-css).
+- Inspired by [GitHub’s Primer Guidelines](http://primercss.io/guidelines/).
+- Compiled and expanded by [Michael Xander](http://michaelxander.com).

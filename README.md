@@ -4,16 +4,16 @@ Best practices and guidelines for writing code with approachable formatting, syn
 
 ## Includes
 
-* HTML Styleguide
+- HTML Styleguide
+- CSS Styleguide
 
-### Coming soon
+### Coming next
 
-* (S)CSS Styleguide
-* Liquid Styleguide
-* JavaScript Styleguide
+- Liquid Styleguide
+- JavaScript Styleguide
 
 ## Credits
 
-* Inspired by [@mdo’s Code Guide](http://codeguide.co).
-* Expanded through [GitHub’s Primer Guidelines](http://primercss.io/guidelines/).
-* Compiled and expanded by [Michael Xander](http://michaelxander.com).
+- Inspired by [@mdo’s Code Guide](http://codeguide.co), which is heavily inspired by [Idiomatic CSS](https://github.com/necolas/idiomatic-css).
+- Expanded through [GitHub’s Primer Guidelines](http://primercss.io/guidelines/).
+- Compiled and expanded by [Michael Xander](http://michaelxander.com).
