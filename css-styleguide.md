@@ -254,13 +254,13 @@ Code is written and maintained by people. Ensure your code is descriptive, well 
 Be sure to write in complete sentences for larger comments and succinct phrases for general notes.
 
 ```scss
-/* Bad example */
+/* Bad */
 /* Modal header */
 .modal-header {
   ...
 }
 
-/* Good example */
+/* Good */
 /* Wrapping element for .modal-title and .modal-close */
 .modal-header {
   ...
@@ -402,13 +402,15 @@ Set your editor to the following settings to avoid common code inconsistencies a
 
 ## Credits
 
-- Inspired by [Dropbox (S)CSS Style Guide](https://github.com/dropbox/css-style-guide)
+- Inspired by [Dropbox (S)CSS Style Guide](https://github.com/dropbox/css-style-guide).
 - Inspired by [@mdo’s Code Guide](http://codeguide.co), which is heavily inspired by [Idiomatic CSS](https://github.com/necolas/idiomatic-css).
 - Inspired by [GitHub’s Primer Guidelines](http://primercss.io/guidelines/).
-- Inspired by [Hugo Giraudel’s Sass Guidelines](https://sass-guidelin.es/#architecture)
+- Inspired by [Hugo Giraudel’s Sass Guidelines](https://sass-guidelin.es/#architecture).
 - Compiled and expanded by [Michael Xander](http://michaelxander.com).
 
-## Additional resources
+---
+
+##### Additional resources
 
 - [BEM 101](https://css-tricks.com/bem-101/)
 - [The Sass Way](http://thesassway.com)
