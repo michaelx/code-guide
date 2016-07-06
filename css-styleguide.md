@@ -2,6 +2,10 @@
 
 Best practices and guidelines for writing CSS with approachable formatting, syntax, and more.
 
+## General
+
+- Don’t overuse Sass features. Keep it as simple as it can be.
+
 ## Syntax
 
 - Use soft-tabs with two spaces. Spaces are the only way to guarantee code renders the same in any person’s environment.
@@ -16,11 +20,12 @@ Best practices and guidelines for writing CSS with approachable formatting, synt
 - Use shorthand hex values where available, e.g., `#fff` instead of `#ffffff`.
 - Quote attribute values in selectors, e.g., `input[type="text"]`. [They’re only optional in some cases](http://mathiasbynens.be/notes/unquoted-attribute-values#css), and it’s a good practice for consistency.
 - Put spaces before and after child selector `div > span` instead of `div>span`.
+- Use unit-less line-height as it’s just a multiplier of the font-size, e.g., `line-height: 1.5` instead of `line-height: 1.5em`.
 
 ### Don’ts
 
 - Don't include spaces after commas _within_ `rgb()`, `rgba()`, `hsl()`, `hsla()`, or `rect()` values. This helps differentiate multiple color values (comma, no space) from multiple property values (comma with space).
-- Don't prefix property values or color parameters with a leading zero (e.g., `.5` instead of `0.5` and `-.5px` instead of `-0.5px`).
+- Don’t use leading zeros for decimal values `opacity: .4;` instead of `opacity: 0.4;`.
 - Avoid specifying units for zero values, e.g., `margin: 0;` instead of `margin: 0px;`.
 - Avoid using HTML tags in CSS selectors. E.g. Prefer `.o-modal {}` over `div.o-modal {}`. Always prefer using a class over HTML tags (with some exceptions like CSS resets).
 - Don't use ids in selectors. `#header` is overly specific compared to, for example `.header` and is much harder to override.
@@ -102,9 +107,9 @@ Here’s a comprehensive example:
 
 - Define all local variables at the top of the file after the imports.
 - Namespace local variables with the filename.
-  - eg `alert_box.scss` →`$alert_box_font_size: 14px;`
-- Local variables should be `$snake_lowercase`
-- Global constants should be `$SNAKE_ALL_CAPS`
+  - eg `alert-box.scss` →`$alert-box-font-size: 14px;`
+- Variables should be lowercase.
+
 
 ## Color
 
@@ -126,7 +131,7 @@ Example:
 .c-link {
   color: color(blue);
   border-color: #fff;
-  background-color: rgba(#fff, .1);
+  background-color: rgba(#fff, .06);
 }
 ```
 
@@ -161,12 +166,12 @@ Don't bundle them all in a separate stylesheet or at the end of the document. Do
 ### Create variables for frequently used breakpoints
 
 ```scss
-$SCREEN_SM_MAX: "max-width: 767px";
+$screen-sm-max: "max-width: 767px";
 
 .selector {
   float: left;
 
-  @media only screen and ($SCREEN_SM_MAX) {
+  @media only screen and ($screen-sm-max) {
     float: none;
   }
 }
@@ -270,14 +275,17 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
 ## BEM
 
 Block: Unique, meaningful names for a logical unit of style. Avoid excessive shorthand.
+
 - Good: `.alert-box` or `.recents-intro` or `.button`
 - Bad: `.feature` or `.content` or `.btn`
 
 Element: styles that only apply to children of a block. Elements can also be blocks themselves. Class name is a concatenation of the block name, two underscores and the element name. Examples:
+
 - `.alert-box__close`
 - `.expanding-section__section`
 
 Modifier: override or extend the base styles of a block or element with modifier styles. Class name is a concatenation of the block (or element) name, two hyphens and the modifier name. Examples:
+
 - `.alert-box--success`
 - `.expanding-section--expanded`
 
@@ -318,7 +326,7 @@ Choose your modifiers wisely. These two rules have very different meaning:
 ## Selector naming
 
 - Don't use ids in selectors. `#header` is overly specific compared to, for example `.header` and is much harder to override.
-- Always try to use [BEM-based](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) naming for your class selectors.
+- Always use BEM-based naming for your class selectors [when it makes sense](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
   - When using modifier classes, always require the base/unmodified class is present.
 - Use Sass’s nesting to manage BEM selectors like so:
   ```scss

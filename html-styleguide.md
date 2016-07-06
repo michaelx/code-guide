@@ -57,7 +57,7 @@ Read more about the `lang` attribute [in the spec](http://www.w3.org/html/wg/dra
 Head to Sitepoint for a [list of language codes](http://reference.sitepoint.com/html/lang-codes).
 
 ```html
-<html lang="en-us">
+<html lang="en">
   <!-- ... -->
 </html>
 ```

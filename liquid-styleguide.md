@@ -9,7 +9,7 @@ Best practices and guidelines for writing Liquid with approachable formatting, s
 - Put one space before and after each filter statement, e.g. `{{ 5 | plus: 1 | divided_by: 2 }}`.
 - Include one space after the colon `:` of filter parameters.
 - Comma-separated parameter values should include a space after each comma, e.g. `{{ "barbar" | replace_first: "bar", "foo" }}`.
-- Use double-quoted strings. Escaped characters will always work without a delimiter change, and ' is a lot more common than " in string literals.
+- Use double-quoted strings. Escaped characters will always work without a delimiter change, and ' is a lot more common than " in string literals. Only use single-quotes when necessary.
 - Don’t quote integers, booleans or nil.
 - Put one space before and after operators.
 
