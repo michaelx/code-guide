@@ -283,6 +283,22 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
 }
 ```
 
+### Commenting style
+
+Stick to the following two variations:
+
+```scss
+/* Basic comment */
+
+/**
+ * Multiline comment title
+ *
+ * Documentation, explanation
+ */
+```
+
+Always insert two lines before a new component style.
+
 ## BEM
 
 Block: Unique, meaningful names for a logical unit of style. Avoid excessive shorthand.
