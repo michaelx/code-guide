@@ -32,7 +32,7 @@ Best practices and guidelines for writing CSS with approachable formatting, synt
 - Don’t nest more than 3 levels deep. Nesting selectors increases specificity, meaning that overriding any CSS set therein needs to be targeted with an even more specific selector. This quickly becomes a significant maintenance issue.
 - Avoid using nesting for anything other than pseudo selectors and state selectors. E.g. nesting `:hover`, `:focus`, `::before`, etc. is OK, but nesting selectors inside selectors should be avoided.
 - Don't `!important`. If you must, leave a comment, and prioritise resolving specificity issues before resorting to `!important`. `!important` greatly increases the power of a CSS declaration, making it extremely tough to override in the future. It’s only possible to override with another `!important` declaration later in the cascade.
-- Don’t use `margin-top`. Vertical margins [collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing). Always prefer `padding-top` or`margin-bottom` on preceding elements.
+- Don’t use `margin-top`. Vertical margins [collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing). Always prefer `padding-top` or `margin-bottom` on preceding elements.
 - Avoid shorthand properties (unless you really need them). It can be tempting to use, for instance, `background: #fff` instead of `background-color: #fff`, but doing so overrides other values encapsulated by the shorthand property. (In this case, `background-image` and its associative properties are set to “none”. This applies to all properties with a shorthand: border, margin, padding, font, etc.
 
 ```sass
@@ -72,7 +72,7 @@ Properties and nested declarations should appear in the following order, with li
 Here’s a comprehensive example:
 
 ```scss
-.c-btn {
+.c-button {
   @extend %link--plain;
 
   display: inline-block;
@@ -147,9 +147,22 @@ Compared to `<link>`s, `@import` is slower, adds extra page requests, and can ca
 
 Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.
 
+Try to only nest pseudo-classes with &, as this is all one element and class, just with different states.
+
+```scss
+.button {
+  &:hover,
+  &:focus { }
+
+  &:active { }
+}
+```
+
 ## Media Queries
 
-Media queries should be within the CSS selector as per SMACSS.
+- Media queries should be within the CSS selector as per SMACSS. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.
+- Don’t abstract media queries with Sass mixins, keep it as readable as it can be.
+- Use variables for frequently used breakpoints to keep it consistent and maintainable.
 
 ```scss
 .selector {
@@ -160,8 +173,6 @@ Media queries should be within the CSS selector as per SMACSS.
   }
 }
 ```
-
-Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here's a typical setup.
 
 ### Create variables for frequently used breakpoints
 
@@ -307,7 +318,7 @@ Modifier: override or extend the base styles of a block or element with modifier
 .alert-box__close--succes {} 
 ```
 
-### BEM Best practices
+### BEM best practices
 
 Don't `@extend` block modifiers with the block base.
 - Good: `<div class="my-block my-block--modifier">`
@@ -323,27 +334,53 @@ Choose your modifiers wisely. These two rules have very different meaning:
 .block__element--modifier { color: red; }
 ```
 
+### BEM nesting with &
+
+Nesting for BEM—or any other flavor CSS architecture—is helpful at first, but comes as a cost.
+  
+```scss
+.block {
+  &--modifier { /* compiles to .block--modifier */
+    text-align: center;
+  }
+
+  &__element { /* compiles to .block__element */
+    color: red;
+
+    &--modifier { /* compiles to .block__element--modifier */
+      color: blue;
+    }
+  }
+}
+```
+
+While you’re saving a few bytes in your source file by not writing .block each time, you lose out on the ability search for your classes.
+
+Instead, keep it simple and just write it all out:
+
+```scss
+.block__element { }
+.block--modifier { }
+```
+
+Easy to read, easy to search, and with no sacrifice to your compiled CSS.
+
+### Making exceptions
+
+In some cases the strict adherence to BEM conventions is either impractical or impossible. E.g. for our generated .markdown-content, as you shouldn’t have to put a class on every single <p> tag for example.
+
+Extend your base style with a tag selector for the generated .markdown-content instead.
+
+```scss
+.markdown-content p { }
+.markdown-content a { }
+```
+
 ## Selector naming
 
 - Don't use ids in selectors. `#header` is overly specific compared to, for example `.header` and is much harder to override.
 - Always use BEM-based naming for your class selectors [when it makes sense](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
   - When using modifier classes, always require the base/unmodified class is present.
-- Use Sass’s nesting to manage BEM selectors like so:
-  ```scss
-  .block {
-    &--modifier { /* compiles to .block--modifier */
-      text-align: center;
-    }
-
-    &__element { /* compiles to .block__element */
-      color: red;
-
-      &--modifier { /* compiles to .block__element--modifier */
-        color: blue;
-      }
-    }
-  }
-  ```
   
 ## Namespaced classes
 
@@ -422,3 +459,5 @@ Set your editor to the following settings to avoid common code inconsistencies a
 
 - [BEM 101](https://css-tricks.com/bem-101/)
 - [The Sass Way](http://thesassway.com)
+- [Nesting in Sass and Less](http://markdotto.com/2015/07/20/css-nesting/)
+- [Side Effects in CSS](https://philipwalton.com/articles/side-effects-in-css/)
