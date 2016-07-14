@@ -367,7 +367,7 @@ Easy to read, easy to search, and with no sacrifice to your compiled CSS.
 
 ### Making exceptions
 
-In some cases the strict adherence to BEM conventions is either impractical or impossible. E.g. for our generated .markdown-content, as you shouldn’t have to put a class on every single <p> tag for example.
+In some cases the strict adherence to BEM conventions is either impractical or impossible. E.g. for our generated .markdown-content, as you shouldn’t have to put a class on every single `<p>` tag for example.
 
 Extend your base style with a tag selector for the generated .markdown-content instead.
 
