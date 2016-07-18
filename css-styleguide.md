@@ -402,7 +402,7 @@ Extend your base style with a tag selector for the generated .markdown-content i
 
 There are a few reserved namespaces for classes to provide common and globally-available abstractions.
 
-- `.u-` for helpers and utilities. Utility classes are usually single-purpose and have high priority. Things like floating elements, trimming margins, etc.
+- `.u-` for helpers and utilities. Utility classes are usually single-purpose and have high priority. Things like floating elements, trimming margins, etc. Don’t overuse them, e.g. if you’ve an utility class to center text, don’t use it as a shortcut to style components. Aim for autonomous components that can be understood without having to review the html markup.
 - `._` for hacks. Classes with a hack namespace should be used when you need to force a style with `!important` or increasing specificity, should be temporary, and should not be bound onto.
 - `.t-` for theme classes. Pages with unique styles or overrides for any objects or components should make use of theme classes.
 - Never reference `.js-` prefixed class names from CSS files. `.js-` are used exclusively from JS files. Use `.is-, .has-` for state rules that are shared between CSS and JS, a la [SMACSS](https://smacss.com/book/type-state).
