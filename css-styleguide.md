@@ -379,7 +379,7 @@ Instead, keep it simple and just write it all out:
 .block--modifier { }
 ```
 
-Easy to read, easy to search, and with no sacrifice to your compiled CSS.
+Easy to read, easy to search, easy to refactor, and with no sacrifice to your compiled CSS.
 
 ### Making exceptions
 
