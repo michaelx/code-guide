@@ -4,7 +4,7 @@ Best practices and guidelines for writing CSS with approachable formatting, synt
 
 ## General
 
-- Don’t overuse Sass features. Keep it as simple as it can be.
+- Don’t overuse preprocessor features. Keep it as simple as it can be.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ Best practices and guidelines for writing CSS with approachable formatting, synt
 - Include one space after `:` for each declaration.
 - Each declaration should appear on its own line for more accurate error reporting.
 - End all declarations with a semi-colon. The last declaration's is optional, but your code is more error prone without it.
-- Comma-separated property values should include a space after each comma (e.g., `box-shadow`).
+- Comma-separated property values _(not multiple color values)_ should include a space after each comma (e.g., `font-family: Helvetica, Arial, sans-serif`).
 - Lowercase all hex values, e.g., `#fff`. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.
 - Use shorthand hex values where available, e.g., `#fff` instead of `#ffffff`.
 - Quote attribute values in selectors, e.g., `input[type="text"]`. [They’re only optional in some cases](http://mathiasbynens.be/notes/unquoted-attribute-values#css), and it’s a good practice for consistency.
@@ -31,7 +31,7 @@ Best practices and guidelines for writing CSS with approachable formatting, synt
 - Don't use ids in selectors. `#header` is overly specific compared to, for example `.header` and is much harder to override.
 - Don’t nest more than 3 levels deep. Nesting selectors increases specificity, meaning that overriding any CSS set therein needs to be targeted with an even more specific selector. This quickly becomes a significant maintenance issue.
 - Avoid using nesting for anything other than pseudo selectors and state selectors. E.g. nesting `:hover`, `:focus`, `::before`, etc. is OK, but nesting selectors inside selectors should be avoided.
-- Don't `!important`. If you must, leave a comment, and prioritise resolving specificity issues before resorting to `!important`. `!important` greatly increases the power of a CSS declaration, making it extremely tough to override in the future. It’s only possible to override with another `!important` declaration later in the cascade.
+- Don't `!important`. If you must, leave a comment, and prioritise resolving specificity issues before resorting to `!important`. `!important` greatly increases the power of a CSS declaration, making it extremely tough to override in the future. It’s only possible to override with another `!important` declaration later in the cascade. The only case [when you should](http://csswizardry.com/2016/05/the-importance-of-important/) use `!important` is for utility classes.
 - Don’t use `margin-top`. Vertical margins [collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing). Always prefer `padding-top` or `margin-bottom` on preceding elements.
 - Avoid shorthand properties (unless you really need them). It can be tempting to use, for instance, `background: #fff` instead of `background-color: #fff`, but doing so overrides other values encapsulated by the shorthand property. (In this case, `background-image` and its associative properties are set to “none”. This applies to all properties with a shorthand: border, margin, padding, font, etc.
 
@@ -131,7 +131,7 @@ Example:
 .c-link {
   color: color(blue);
   border-color: #fff;
-  background-color: rgba(#fff, .06);
+  background-color: rgba(#fff,.06);
 }
 ```
 
@@ -409,7 +409,7 @@ There are a few reserved namespaces for classes to provide common and globally-a
 
 ## File organization
 
-We use a 5-1 pattern, which is abstracted from the [7-1 pattern](https://sass-guidelin.es/#architecture). 5 folders, 1 file to compile them all in a single CSS file.
+I prefer a 5-1 pattern, which is abstracted from the [7-1 pattern](https://sass-guidelin.es/#architecture). 5 folders, 1 file to compile them all in a single CSS file.
 
 ```bash
 styles/
