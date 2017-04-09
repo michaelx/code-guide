@@ -25,7 +25,7 @@ Best practices and guidelines for writing CSS with approachable formatting, synt
 ### Don’ts
 
 - Don't include spaces after commas _within_ `rgb()`, `rgba()`, `hsl()`, `hsla()`, or `rect()` values. This helps differentiate multiple color values (comma, no space) from multiple property values (comma with space).
-- Don’t use leading zeros for decimal values `opacity: .4;` instead of `opacity: 0.4;`.
+- Don’t use leading zeros for decimal values, write `opacity: .4;` instead of `opacity: 0.4;`.
 - Avoid specifying units for zero values, e.g., `margin: 0;` instead of `margin: 0px;`.
 - Avoid using HTML tags in CSS selectors. E.g. Prefer `.o-modal {}` over `div.o-modal {}`. Always prefer using a class over HTML tags (with some exceptions like CSS resets).
 - Don't use ids in selectors. `#header` is overly specific compared to, for example `.header` and is much harder to override.
@@ -33,7 +33,7 @@ Best practices and guidelines for writing CSS with approachable formatting, synt
 - Avoid using nesting for anything other than pseudo selectors and state selectors. E.g. nesting `:hover`, `:focus`, `::before`, etc. is OK, but nesting selectors inside selectors should be avoided.
 - Don't `!important`. If you must, leave a comment, and prioritise resolving specificity issues before resorting to `!important`. `!important` greatly increases the power of a CSS declaration, making it extremely tough to override in the future. It’s only possible to override with another `!important` declaration later in the cascade. The only case [when you should](http://csswizardry.com/2016/05/the-importance-of-important/) use `!important` is for utility classes.
 - Don’t use `margin-top`. Vertical margins [collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing). Always prefer `padding-top` or `margin-bottom` on preceding elements.
-- Avoid shorthand properties (unless you really need them). It can be tempting to use, for instance, `background: #fff` instead of `background-color: #fff`, but doing so overrides other values encapsulated by the shorthand property. (In this case, `background-image` and its associative properties are set to “none”. This applies to all properties with a shorthand: border, margin, padding, font, etc.
+- Avoid shorthand properties (unless you really need them). It can be tempting to use, for instance, `background: #fff` instead of `background-color: #fff`, but doing so overrides other values encapsulated by the shorthand property. (In this case, `background-image` and its associative properties are set to “none”. This applies to all properties with a shorthand: `border`, `margin`, `padding`, `font`, etc.
 
 ```sass
 /* Bad */
@@ -107,7 +107,7 @@ Here’s a comprehensive example:
 
 - Define all local variables at the top of the file after the imports.
 - Namespace local variables with the filename.
-  - eg `alert-box.scss` →`$alert-box-font-size: 14px;`
+  - e.g. `alert-box.scss` →`$alert-box-font-size: 14px;`
 - Variables should be lowercase.
 
 
